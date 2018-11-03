@@ -17,6 +17,12 @@ LinkedList::LinkedList(Node* h, Node* t, int l)
     length = l;
 }
 
+/**
+ * This method takes in a value, and adds it to the tail of the list
+ *
+ * @param int val
+ * @return Node*
+ */
 Node* LinkedList::addNode(int val)
 {
     Node* node = new Node(val);
@@ -45,6 +51,30 @@ Node* LinkedList::addNode(Node* node)
 }
 
 /**
+ * This method takes in a value, and adds it to the head of the list
+ *
+ * @param int val
+ * @return void
+ */
+void LinkedList::insertHead(int val)
+{
+    Node* node = new Node(val);
+
+    if (!head)
+    {
+        head = node;
+
+        tail = node;
+    }
+    else
+    {
+        node->next = head;
+
+        head = node;
+    }
+}
+
+/**
  * Takes a node that is not head, or tail of the list
  * Removes the node from the list and ensures list in order
  *
@@ -56,7 +86,7 @@ void LinkedList::deleteMiddle(Node* node)
     swap(node->next->val, node->val);
 
     Node* nodeToDelete = node->next;
-    
+
     if (nodeToDelete == tail) tail = node;
 
     node->next = nodeToDelete->next;
