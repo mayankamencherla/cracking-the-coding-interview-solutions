@@ -1,5 +1,4 @@
 #include <iostream>
-#include <unordered_map>
 
 using namespace std;
 
@@ -70,4 +69,5 @@ int main()
     cout << "Compressing string aabcccccaaa should be a2b1c5a3 and is " << compressString("aabcccccaaa") << endl;
     cout << "Compressing string abcdef should be abcdef and is " << compressString("abcdef") << endl;
     cout << "Compressing string aabcdef should be aadcdef and is " << compressString("aabcdef") << endl;
+    cout << "Compressing string abbcccddddeeeee should be a1b2c3d4e5 and is " << compressString("abbcccddddeeeee") << endl;
 }
