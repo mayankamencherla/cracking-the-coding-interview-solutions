@@ -1,5 +1,6 @@
 #include "linked-list.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -15,6 +16,14 @@ LinkedList::LinkedList(Node* h, Node* t, int l)
     head = h;
     tail = t;
     length = l;
+}
+
+LinkedList::LinkedList(vector<int>& array)
+{
+    for (int elem : array)
+    {
+        this->addNode(elem);
+    }
 }
 
 /**
