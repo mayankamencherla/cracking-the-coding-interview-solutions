@@ -47,6 +47,14 @@ int nthFromLastCheat(LinkedList& l, int n)
     return node->val;
 }
 
+/**
+ * Recursively getting the nth from last element
+ *
+ * @param LinkedList l
+ * @param int n
+ * @param int ind
+ * @return int
+ */
 int nthFromLastHelper(Node* curr, int n, int& ind)
 {
     if (!curr) return -1;
@@ -60,6 +68,13 @@ int nthFromLastHelper(Node* curr, int n, int& ind)
     return deep;
 }
 
+/**
+ * This method computes the nth from tail element in the linked list
+ *
+ * @param LinkedList l
+ * @param int n
+ * @return int
+ */
 int nthFromLast(LinkedList& l, int n)
 {
     Node* head = l.getHead();
