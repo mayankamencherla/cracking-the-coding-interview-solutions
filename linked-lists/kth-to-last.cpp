@@ -4,20 +4,6 @@
 
 using namespace std;
 
-void printList(LinkedList& l)
-{
-    Node* curr = l.getHead();
-
-    while (curr)
-    {
-        cout << curr->val << " ";
-
-        curr = curr->next;
-    }
-
-    cout << endl;
-}
-
 /**
  * A cheat would be to simply get the length and calculate the nth from last position
  *
@@ -97,7 +83,7 @@ int main()
 
     cout << "Printing list" << endl;
 
-    printList(l);
+    l.printList();
 
     cout << endl;
 
