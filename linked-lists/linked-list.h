@@ -1,4 +1,5 @@
 #include "node.cpp"
+#include <vector>
 
 /**
  * This is a LinkedList that holds a integer node
@@ -14,6 +15,8 @@ class LinkedList
         LinkedList();
 
         LinkedList(Node* h, Node* t, int l);
+
+        LinkedList(vector<int>& array);
 
         Node* addNode(int val);
 
