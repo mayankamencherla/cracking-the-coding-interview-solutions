@@ -51,6 +51,46 @@ Node* LinkedList::addNode(Node* node)
 }
 
 /**
+ * Partitioning list around val
+ * All elements <val will come before all elements >=val
+ *
+ * @param int val
+ * @return void
+ */
+void LinkedList::partitionList(int val)
+{
+    LinkedList less = LinkedList();
+
+    LinkedList more = LinkedList();
+
+    Node* curr = head;
+
+    while (curr)
+    {
+        Node* next = curr->next;
+
+        curr->next = NULL;
+
+        if (curr->val < val)
+        {
+            less.addNode(curr);
+        }
+        else
+        {
+            more.addNode(curr);
+        }
+
+        curr = next;
+    }
+
+    head = less.getHead();
+
+    less.getTail()->next = more.getHead();
+
+    tail = more.getTail();
+}
+
+/**
  * This method takes in a value, and adds it to the head of the list
  *
  * @param int val
@@ -127,4 +167,9 @@ int LinkedList::getLength()
 Node* LinkedList::getHead()
 {
     return head;
+}
+
+Node* LinkedList::getTail()
+{
+    return tail;
 }
