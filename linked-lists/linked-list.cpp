@@ -56,6 +56,8 @@ void LinkedList::deleteMiddle(Node* node)
     swap(node->next->val, node->val);
 
     Node* nodeToDelete = node->next;
+    
+    if (nodeToDelete == tail) tail = node;
 
     node->next = nodeToDelete->next;
 
