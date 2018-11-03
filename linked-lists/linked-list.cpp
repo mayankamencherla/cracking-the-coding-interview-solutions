@@ -77,6 +77,8 @@ void LinkedList::insertHead(Node* node)
 
         head = node;
     }
+
+    length++;
 }
 
 /**
@@ -99,6 +101,8 @@ void LinkedList::deleteMiddle(Node* node)
     nodeToDelete->next = NULL;
 
     delete(nodeToDelete);
+
+    length--;
 }
 
 void LinkedList::printList()
