@@ -60,6 +60,11 @@ void LinkedList::insertHead(int val)
 {
     Node* node = new Node(val);
 
+    this->insertHead(node);
+}
+
+void LinkedList::insertHead(Node* node)
+{
     if (!head)
     {
         head = node;
