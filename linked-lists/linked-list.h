@@ -19,6 +19,8 @@ class LinkedList
 
         Node* addNode(Node* node);
 
+        void printList();
+
         void deleteMiddle(Node* node);
 
         Node* getHead();
