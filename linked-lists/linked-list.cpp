@@ -1,4 +1,5 @@
 #include "linked-list.h"
+#include <iostream>
 
 using namespace std;
 
@@ -61,6 +62,20 @@ void LinkedList::deleteMiddle(Node* node)
     nodeToDelete->next = NULL;
 
     delete(nodeToDelete);
+}
+
+void LinkedList::printList()
+{
+    Node* curr = head;
+
+    while (curr)
+    {
+        cout << curr->val << " ";
+
+        curr = curr->next;
+    }
+
+    cout << endl;
 }
 
 int LinkedList::getLength()
