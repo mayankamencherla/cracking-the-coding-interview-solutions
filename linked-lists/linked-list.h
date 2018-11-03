@@ -34,6 +34,8 @@ class LinkedList
 
         void partitionList(int val);
 
+        void initialize();
+
         Node* getHead();
 
         Node* getTail();
