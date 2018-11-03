@@ -21,6 +21,10 @@ class LinkedList
 
         void printList();
 
+        void insertHead(int val);
+
+        void insertHead(Node* node);
+
         void deleteMiddle(Node* node);
 
         Node* getHead();
