@@ -27,7 +27,11 @@ class LinkedList
 
         void deleteMiddle(Node* node);
 
+        void partitionList(int val);
+
         Node* getHead();
+
+        Node* getTail();
 
         int getLength();
 };
