@@ -9,14 +9,17 @@ class LinkedList
     private:
         Node* head;
         Node* tail;
+        int length;
     public:
         LinkedList();
 
-        LinkedList(Node* h, Node* t);
+        LinkedList(Node* h, Node* t, int l);
 
         void addNode(int val);
 
         void addNode(Node* node);
 
         Node* getHead();
+
+        int getLength();
 };
