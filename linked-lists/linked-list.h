@@ -15,9 +15,11 @@ class LinkedList
 
         LinkedList(Node* h, Node* t, int l);
 
-        void addNode(int val);
+        Node* addNode(int val);
 
-        void addNode(Node* node);
+        Node* addNode(Node* node);
+
+        void deleteMiddle(Node* node);
 
         Node* getHead();
 
