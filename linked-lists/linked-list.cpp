@@ -1,5 +1,7 @@
 #include "linked-list.h"
 
+using namespace std;
+
 LinkedList::LinkedList()
 {
     head = NULL;
@@ -14,14 +16,14 @@ LinkedList::LinkedList(Node* h, Node* t, int l)
     length = l;
 }
 
-void LinkedList::addNode(int val)
+Node* LinkedList::addNode(int val)
 {
     Node* node = new Node(val);
 
-    this->addNode(node);
+    return this->addNode(node);
 }
 
-void LinkedList::addNode(Node* node)
+Node* LinkedList::addNode(Node* node)
 {
     if (!tail)
     {
@@ -37,6 +39,28 @@ void LinkedList::addNode(Node* node)
     }
 
     length++;
+
+    return node;
+}
+
+/**
+ * Takes a node that is not head, or tail of the list
+ * Removes the node from the list and ensures list in order
+ *
+ * @param Node* node
+ * @return void
+ */
+void LinkedList::deleteMiddle(Node* node)
+{
+    swap(node->next->val, node->val);
+
+    Node* nodeToDelete = node->next;
+
+    node->next = nodeToDelete->next;
+
+    nodeToDelete->next = NULL;
+
+    delete(nodeToDelete);
 }
 
 int LinkedList::getLength()
