@@ -6,20 +6,6 @@
 
 using namespace std;
 
-void printList(LinkedList& l)
-{
-    Node* curr = l.getHead();
-
-    while (curr)
-    {
-        cout << curr->val << " ";
-
-        curr = curr->next;
-    }
-
-    cout << endl;
-}
-
 /**
  * This method takes in a linked list and removes duplicates using a set
  * The set contains all the elements that we have seen so far
@@ -65,7 +51,7 @@ int main()
 
     cout << "Printing list before removing dups" << endl;
 
-    printList(l);
+    l.printList();
 
     cout << endl;
 
@@ -73,5 +59,5 @@ int main()
 
     cout << "Printing list after removing dups using buffer" << endl;
 
-    printList(l);
+    l.printList();
 }
