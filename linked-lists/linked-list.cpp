@@ -6,9 +6,7 @@ using namespace std;
 
 LinkedList::LinkedList()
 {
-    head = NULL;
-    tail = NULL;
-    length = 0;
+    this->initialize();
 }
 
 LinkedList::LinkedList(Node* h, Node* t, int l)
@@ -20,10 +18,19 @@ LinkedList::LinkedList(Node* h, Node* t, int l)
 
 LinkedList::LinkedList(vector<int>& array)
 {
+    this->initialize();
+
     for (int elem : array)
     {
         this->addNode(elem);
     }
+}
+
+void LinkedList::initialize()
+{
+    head = NULL;
+    tail = NULL;
+    length = 0;
 }
 
 /**
@@ -53,6 +60,8 @@ Node* LinkedList::addNode(Node* node)
 
         tail = node;
     }
+
+    // cout << head->val << " " << tail->val << endl;
 
     length++;
 
