@@ -1,6 +1,8 @@
 #include "node.cpp"
 #include <vector>
 
+using namespace std;
+
 /**
  * This is a LinkedList that holds a integer node
  * It is a singly linked list
