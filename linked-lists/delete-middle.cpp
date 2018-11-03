@@ -4,20 +4,6 @@
 
 using namespace std;
 
-void printList(LinkedList& l)
-{
-    Node* curr = l.getHead();
-
-    while (curr)
-    {
-        cout << curr->val << " ";
-
-        curr = curr->next;
-    }
-
-    cout << endl;
-}
-
 /**
  * This method takes a node to delete from the linked list
  * The node is neither the head, nor the tail
@@ -55,7 +41,7 @@ int main()
 
     cout << "Printing list" << endl;
 
-    printList(l);
+    l.printList();
 
     cout << endl;
 
@@ -63,7 +49,7 @@ int main()
 
     cout << "Printing list after deleting middle node" << endl;
 
-    printList(l);
+    l.printList();
 
     cout << endl;
 }
