@@ -4,12 +4,14 @@ LinkedList::LinkedList()
 {
     head = NULL;
     tail = NULL;
+    length = 0;
 }
 
-LinkedList::LinkedList(Node* h, Node* t)
+LinkedList::LinkedList(Node* h, Node* t, int l)
 {
     head = h;
     tail = t;
+    length = l;
 }
 
 void LinkedList::addNode(int val)
@@ -33,6 +35,13 @@ void LinkedList::addNode(Node* node)
 
         tail = node;
     }
+
+    length++;
+}
+
+int LinkedList::getLength()
+{
+    return length;
 }
 
 Node* LinkedList::getHead()
