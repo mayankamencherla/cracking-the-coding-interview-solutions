@@ -183,14 +183,14 @@ bool LinkedList::isEqual(LinkedList& other)
     return true;
 }
 
-void LinkedList::setLength()
+void LinkedList::extend(Node* curr)
 {
-    Node* curr = head;
-
-    length = 0;
+    tail->next = curr;
 
     while (curr)
     {
+        tail = curr;
+
         length++;
 
         curr = curr->next;
