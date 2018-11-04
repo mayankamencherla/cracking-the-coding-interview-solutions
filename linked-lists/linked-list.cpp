@@ -183,6 +183,20 @@ bool LinkedList::isEqual(LinkedList& other)
     return true;
 }
 
+void LinkedList::setLength()
+{
+    Node* curr = head;
+
+    length = 0;
+
+    while (curr)
+    {
+        length++;
+
+        curr = curr->next;
+    }
+}
+
 /**
  * This method takes in a value, and adds it to the head of the list
  *
