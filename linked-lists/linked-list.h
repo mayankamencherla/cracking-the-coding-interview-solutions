@@ -32,7 +32,7 @@ class LinkedList
 
         void insertHead(Node* node);
 
-        void setLength();
+        void extend(Node* curr);
 
         void deleteMiddle(Node* node);
 
