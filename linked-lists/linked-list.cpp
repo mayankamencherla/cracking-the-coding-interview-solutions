@@ -198,6 +198,66 @@ void LinkedList::extend(Node* curr)
 }
 
 /**
+ * This method removes the head of the list
+ *
+ * @param void
+ * @return Node*
+ */
+Node* LinkedList::removeHead()
+{
+    if (!head) return NULL;
+
+    Node* node = head;
+
+    head = node->next;
+
+    length--;
+
+    if (length == 0) tail = NULL;
+
+    node->next = NULL;
+
+    return node;
+}
+
+/**
+ * This method removes the tail of the list
+ *
+ * @param void
+ * @return Node*
+ */
+Node* LinkedList::removeTail()
+{
+    if (length == 0) return NULL;
+
+    length--;
+
+    if (length == 0)
+    {
+        Node* node = head;
+
+        head = NULL;
+
+        tail = NULL;
+
+        return node;
+    }
+
+    Node* node = head;
+
+    while (node->next != tail)
+    {
+        node = node->next;
+    }
+
+    tail = node;
+
+    tail->next = NULL;
+
+    return node;
+}
+
+/**
  * This method takes in a value, and adds it to the head of the list
  *
  * @param int val
