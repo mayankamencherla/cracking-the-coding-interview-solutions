@@ -17,9 +17,7 @@ bool containsCycle(LinkedList& l)
 {
     Node* slow = l.getHead();
 
-    if (!slow) return false;
-
-    Node* fast = slow->next;
+    Node* fast = slow;
 
     while (fast && fast->next)
     {
