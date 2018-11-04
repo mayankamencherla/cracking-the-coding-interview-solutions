@@ -65,11 +65,11 @@ int Queue::pop()
     // This is like throwing an exception
     if (list.empty()) return numeric_limits<int>::min();
 
-    Node* head = list.removeTail();
+    Node* tail = list.removeTail();
 
-    int val = head->val;
+    int val = tail->val;
 
-    delete(head);
+    delete(tail);
 
     return val;
 }
