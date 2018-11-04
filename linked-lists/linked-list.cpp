@@ -234,7 +234,7 @@ Node* LinkedList::removeTail()
 
     if (length == 0)
     {
-        Node* node = head;
+        Node* node = tail;
 
         head = NULL;
 
@@ -250,7 +250,9 @@ Node* LinkedList::removeTail()
         node = node->next;
     }
 
-    tail = node;
+    // Tail points to previous element
+    // And node points to tail
+    swap(tail, node);
 
     tail->next = NULL;
 
