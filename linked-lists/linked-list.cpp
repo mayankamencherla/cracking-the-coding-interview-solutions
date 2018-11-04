@@ -26,6 +26,24 @@ LinkedList::LinkedList(vector<int>& array)
     }
 }
 
+/**
+ * Takes in another LinkedList, and deep copies it into this one
+ *
+ * @param LinkedList& other
+ * @return void
+ */
+void LinkedList::deepCopy(LinkedList& other)
+{
+    Node* curr = other.getHead();
+
+    while (curr)
+    {
+        this->addNode(curr->val);
+
+        curr = curr->next;
+    }
+}
+
 void LinkedList::initialize()
 {
     head = NULL;
@@ -111,9 +129,9 @@ void LinkedList::partitionList(int val)
 /**
  * Iteratively converts LinkedList to its reverse
  *
- * @return LinkedList
+ * @return void
  */
-LinkedList LinkedList::reverse()
+void LinkedList::reverse()
 {
     Node* curr = head;
 
@@ -130,7 +148,9 @@ LinkedList LinkedList::reverse()
         curr = next;
     }
 
-    return l;
+    head = l.getHead();
+
+    tail = l.getTail();
 }
 
 /**
