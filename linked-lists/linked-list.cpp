@@ -177,6 +177,38 @@ void LinkedList::printList()
     cout << endl;
 }
 
+/**
+ * Takes in an index in the range [0, length-1]
+ * Returns the node at that index
+ *
+ * @param int index
+ * @return Node*
+ */
+Node* LinkedList::getNodeAt(int index)
+{
+    Node* curr = head;
+
+    if (index >= length) return NULL;
+
+    else if (index == 0) return head;
+
+    else if (index == length-1) return tail;
+
+    while (index > 0)
+    {
+        index--;
+
+        curr = curr->next;
+    }
+
+    return curr;
+}
+
+bool LinkedList::empty()
+{
+    return length == 0;
+}
+
 int LinkedList::getLength()
 {
     return length;
