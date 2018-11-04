@@ -105,6 +105,53 @@ class SetOfStacks
         }
 
         /**
+         * This method checks if the index is contained in the set of stacks
+         *
+         * @param int index
+         * @return bool
+         */
+        bool isIndexValid(int index)
+        {
+            return (index >=0 && index <= currStack);
+        }
+
+        /**
+         * Remove the stack at index
+         *
+         * @param int index
+         * @return void
+         */
+        void removeStackAt(int index)
+        {
+            set.erase(set.begin() + index);
+
+            // The currStacks's index reduces by 1
+            currStack--;
+        }
+
+        /**
+         * Pop the top element of the stack at index
+         *
+         * @return int
+         */
+        int popAt(int index)
+        {
+            if (this->isEmpty() || !isIndexValid(index) || set[index].empty()) return numeric_limits<int>::min();
+
+            if (index == currStack) return pop();
+
+            // Index is between [0, currStack-1]
+
+            int top = set[index].top();
+
+            set[index].pop();
+
+            if (set[index].empty()) removeStackAt(index);
+
+            return top;
+        }
+
+        /**
          * Pop the top element of the stack
          *
          * @return int
@@ -187,11 +234,11 @@ int main()
 
     cout << "Size of the stack " << s.numElems() << endl;
 
-    cout << "Popping the stack " << s.pop() << endl;
+    cout << "Popping the stack at index 0: " << s.popAt(0) << endl;
 
-    cout << "Popping the stack " << s.pop() << endl;
+    cout << "Popping the stack at index 0: " << s.popAt(0) << endl;
 
-    cout << "Popping the stack " << s.pop() << endl;
+    cout << "Popping the stack " << s.popAt(0) << endl;
 
     cout << "Size of the stack " << s.numElems() << endl;
 
