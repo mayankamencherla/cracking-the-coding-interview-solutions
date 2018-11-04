@@ -20,6 +20,8 @@ class LinkedList
 
         LinkedList(vector<int>& array);
 
+        void deepCopy(LinkedList& other);
+
         Node* addNode(int val);
 
         Node* addNode(Node* node);
@@ -40,7 +42,7 @@ class LinkedList
 
         void initialize();
 
-        LinkedList reverse();
+        void reverse();
 
         bool isEqual(LinkedList& l);
 
