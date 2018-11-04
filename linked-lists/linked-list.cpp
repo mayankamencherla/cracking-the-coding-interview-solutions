@@ -109,6 +109,61 @@ void LinkedList::partitionList(int val)
 }
 
 /**
+ * Iteratively converts LinkedList to its reverse
+ *
+ * @return LinkedList
+ */
+LinkedList LinkedList::reverse()
+{
+    Node* curr = head;
+
+    LinkedList l = LinkedList();
+
+    while (curr)
+    {
+        Node* next = curr->next;
+
+        curr->next = NULL;
+
+        l.insertHead(curr);
+
+        curr = next;
+    }
+
+    return l;
+}
+
+/**
+ * This method checks if other LinkedList same as this
+ *
+ * @param LinkedList& other
+ * @return bool
+ */
+bool LinkedList::isEqual(LinkedList& other)
+{
+    if (length != other.getLength()) return false;
+
+    Node* curr1 = head;
+
+    Node* curr2 = other.getHead();
+
+    // Both lists are of the same length
+    // Therefore, it suffices to check for whether
+    // curr1 is null, as it implies a check for curr2
+
+    while (curr1)
+    {
+        if (curr1->val != curr2->val) return false;
+
+        curr1 = curr1->next;
+
+        curr2 = curr2->next;
+    }
+
+    return true;
+}
+
+/**
  * This method takes in a value, and adds it to the head of the list
  *
  * @param int val
