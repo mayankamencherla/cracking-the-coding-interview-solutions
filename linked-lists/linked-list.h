@@ -40,6 +40,10 @@ class LinkedList
 
         void initialize();
 
+        LinkedList reverse();
+
+        bool isEqual(LinkedList& l);
+
         Node* getHead();
 
         Node* getTail();
