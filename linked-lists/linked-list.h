@@ -32,6 +32,8 @@ class LinkedList
 
         void insertHead(Node* node);
 
+        void setLength();
+
         void deleteMiddle(Node* node);
 
         void partitionList(int val);
