@@ -145,6 +145,8 @@ class AnimalShelter
 
             cats.pop();
 
+            size--;
+
             return c;
         }
 
@@ -160,6 +162,8 @@ class AnimalShelter
             Animal d = topDog();
 
             dogs.pop();
+
+            size--;
 
             return d;
         }
@@ -191,6 +195,8 @@ class AnimalShelter
             pair<Animal, int> d = dogs.front();
 
             pair<Animal, int> c = cats.front();
+
+            size--;
 
             // In case the cat was added in before the dog, return the cat
             if (d.second > c.second)
@@ -233,8 +239,6 @@ class AnimalShelter
         Animal pop()
         {
             if (this->isEmpty()) throw "No animals in the shelter";
-
-            size--;
 
             if (this->dogsEmpty()) return popCat();
 
