@@ -2,7 +2,6 @@
 #include "animal.cpp"
 #include <limits>
 #include <iostream>
-#include <utility>
 
 using namespace std;
 
@@ -15,8 +14,8 @@ using namespace std;
 class AnimalShelter
 {
     private:
-        queue<pair<Animal, int>> dogs;
-        queue<pair<Animal, int>> cats;
+        queue<Animal> dogs;
+        queue<Animal> cats;
         int size;
 
     public:
@@ -94,11 +93,11 @@ class AnimalShelter
         {
             if (isDog(animal))
             {
-                dogs.push(make_pair(Animal(animal), size));
+                dogs.push(Animal(animal, size));
             }
             else if (isCat(animal))
             {
-                cats.push(make_pair(Animal(animal), size));
+                cats.push(Animal(animal, size));
             }
             else
             {
@@ -117,7 +116,7 @@ class AnimalShelter
         {
             if (cats.empty()) throw "No cats in the shelter";
 
-            return cats.front().first;
+            return cats.front();
         }
 
         /**
@@ -129,7 +128,7 @@ class AnimalShelter
         {
             if (dogs.empty()) throw "No dogs in the shelter";
 
-            return dogs.front().first;
+            return dogs.front();
         }
 
         /**
@@ -175,14 +174,13 @@ class AnimalShelter
          */
         Animal topAnimal()
         {
-            pair<Animal, int> d = dogs.front();
+            Animal d = dogs.front();
 
-            pair<Animal, int> c = cats.front();
+            Animal c = cats.front();
 
-            // In case the cat was added in after the dog, return the cat
-            if (d.second < c.second) return c.first;
+            if (d.isOlderThan(c)) return d;
 
-            return d.first;
+            return c;
         }
 
         /**
@@ -192,23 +190,23 @@ class AnimalShelter
          */
         Animal popAnimal()
         {
-            pair<Animal, int> d = dogs.front();
+            Animal d = dogs.front();
 
-            pair<Animal, int> c = cats.front();
+            Animal c = cats.front();
 
             size--;
 
             // In case the cat was added in before the dog, return the cat
-            if (d.second > c.second)
+            if (c.isOlderThan(d))
             {
                 cats.pop();
 
-                return c.first;
+                return c;
             }
 
             dogs.pop();
 
-            return d.first;
+            return d;
         }
 
         /**
