@@ -18,6 +18,10 @@ class Stack
 
         int top();
 
+        int bottom();
+
+        int popBottom();
+
         bool empty();
 
         int size();
