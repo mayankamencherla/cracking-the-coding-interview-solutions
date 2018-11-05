@@ -194,19 +194,13 @@ class AnimalShelter
 
             Animal c = cats.front();
 
-            size--;
-
             // In case the cat was added in before the dog, return the cat
             if (c.isOlderThan(d))
             {
-                cats.pop();
-
-                return c;
+                return popCat();
             }
 
-            dogs.pop();
-
-            return d;
+            return popDog();
         }
 
         /**
