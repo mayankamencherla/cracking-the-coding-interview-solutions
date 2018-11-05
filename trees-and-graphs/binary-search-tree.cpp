@@ -3,6 +3,7 @@
 #include <queue>
 #include <utility>
 #include <iostream>
+#include <list>
 
 using namespace std;
 
@@ -137,6 +138,50 @@ vector<vector<int>> BinarySearchTree::levelOrder()
     int levels = this->getHeight();
 
     vector<vector<int>> res(levels, vector<int>());
+
+    if (levels == 0) return res;
+
+    queue<pair<TreeNode*, int>> levelOrderQ;
+
+    levelOrderQ.push(make_pair(this->root, 0));
+
+    while (!levelOrderQ.empty())
+    {
+        pair<TreeNode*, int> p = levelOrderQ.front();
+
+        levelOrderQ.pop();
+
+        int currentLevel = p.second;
+
+        TreeNode* curr = p.first;
+
+        res[currentLevel].push_back(curr->value);
+
+        if (curr->left)
+        {
+            levelOrderQ.push(make_pair(curr->left, currentLevel+1));
+        }
+
+        if (curr->right)
+        {
+            levelOrderQ.push(make_pair(curr->right, currentLevel+1));
+        }
+    }
+
+    return res;
+}
+
+/**
+ * Returns the entire tree in levelOrder
+ * Each level is returned as a linked list
+ *
+ * @return vector<list<int>>
+ */
+vector<list<int>> BinarySearchTree::levelOrderLists()
+{
+    int levels = this->getHeight();
+
+    vector<list<int>> res(levels, list<int>());
 
     if (levels == 0) return res;
 
