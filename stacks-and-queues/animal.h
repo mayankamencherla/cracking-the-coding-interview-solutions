@@ -9,12 +9,17 @@ class Animal
 {
     private:
         string type;
+        int index;
 
     public:
         // default constructor
-        Animal(string type);
+        Animal(string type, int index);
 
         string getType();
+
+        int getIndex();
+
+        bool isOlderThan(Animal& other);
 };
 
 #endif
