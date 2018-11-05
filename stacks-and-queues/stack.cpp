@@ -44,6 +44,38 @@ int Stack::top()
 }
 
 /**
+ * This method retrieves the element on the bottom of the stack
+ *
+ * @param void
+ * @return int
+ */
+int Stack::bottom()
+{
+    // This is like throwing an exception
+    if (list.empty()) return numeric_limits<int>::min();
+
+    return list.getTail()->val;
+}
+
+/**
+ * This method removes the element on the bottom of the stack
+ *
+ * @param void
+ * @return int
+ */
+int Stack::popBottom()
+{
+    // This is like throwing an exception
+    if (list.empty()) return numeric_limits<int>::min();
+
+    int v = list.getTail()->val;
+
+    list.removeTail();
+
+    return v;
+}
+
+/**
  * This method returns true if the stack is empty, else false
  *
  * @param void
