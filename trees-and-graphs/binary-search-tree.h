@@ -3,6 +3,7 @@
 
 #include "tree-node.cpp"
 #include <vector>
+#include <list>
 
 using namespace std;
 
@@ -94,6 +95,14 @@ class BinarySearchTree
          * @return vector<vector<int>>
          */
         vector<vector<int>> levelOrder();
+
+        /**
+         * Returns the entire tree in levelOrder
+         * Each level is returned as a linked list
+         *
+         * @return vector<list<int>>
+         */
+        vector<list<int>> levelOrderLists();
 
         /**
          * Prints the entire tree in level order
