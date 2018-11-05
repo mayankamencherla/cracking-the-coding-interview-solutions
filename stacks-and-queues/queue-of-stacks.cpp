@@ -133,7 +133,7 @@ class QueueOfStacks
          *
          * @return void
          */
-        void printQueue()
+        void printStack()
         {
             for (int i=0; i<numElems(); i++)
             {
@@ -156,7 +156,7 @@ int main()
 
     QueueOfStacks s = QueueOfStacks(v);
 
-    s.printQueue();
+    s.printStack();
 
     cout << "Size of the stack " << s.numElems() << endl;
 
