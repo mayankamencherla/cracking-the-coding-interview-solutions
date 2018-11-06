@@ -12,6 +12,14 @@ class TreeNode
         int value;
 
         /**
+         * Height of the tree rooted at this node
+         * Recursively defined as 1 + max(left, right)
+         *
+         * @param int height
+         */
+        int height;
+
+        /**
          * Left child of the node
          *
          * @param TreeNode* left
@@ -72,6 +80,27 @@ class TreeNode
          * @return bool
          */
         bool isLeaf();
+
+        /**
+         * Returns the height of the tree rooted at this node
+         *
+         * @return int
+         */
+        int getHeight();
+
+        /**
+         * Sets the height of the tree rooted at this node
+         *
+         * @return void
+         */
+        void setHeight();
+
+        /**
+         * Increment the right of this tree
+         *
+         * @return void
+         */
+        void incrementHeight();
 };
 
 #endif
