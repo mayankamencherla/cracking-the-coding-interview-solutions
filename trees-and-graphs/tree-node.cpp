@@ -146,3 +146,13 @@ void TreeNode::setParent(TreeNode* parent)
 {
     this->parent = parent;
 }
+
+/**
+ * Returns the value held at this node
+ *
+ * @return int
+ */
+int TreeNode::getValue()
+{
+    return this->value;
+}
