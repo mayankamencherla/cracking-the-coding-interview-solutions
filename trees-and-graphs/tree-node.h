@@ -34,6 +34,13 @@ class TreeNode
         TreeNode* right;
 
         /**
+         * Parent of the node
+         *
+         * @param TreeNode* parent
+         */
+        TreeNode* parent;
+
+        /**
          * Creates a TreeNode* with no children
          *
          * @param int val
@@ -101,6 +108,21 @@ class TreeNode
          * @return void
          */
         void incrementHeight();
+
+        /**
+         * Gets the parent of the node
+         *
+         * @return parent
+         */
+        TreeNode* getParent();
+
+        /**
+         * Sets the parent of the node
+         *
+         * @param TreeNode* parent
+         * @return void
+         */
+        void setParent(TreeNode* parent);
 };
 
 #endif
