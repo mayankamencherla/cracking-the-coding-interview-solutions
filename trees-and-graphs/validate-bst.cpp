@@ -6,7 +6,7 @@
 using namespace std;
 
 /**
- * Write an algorithm to check if a binary tree is balanced
+ * Write an algorithm to check if a binary tree is a binary search tree
  *
  * @see binary-search-tree.cpp
  */
@@ -80,6 +80,33 @@ bool isBST(TreeNode* node, int min, int max)
     return true;
 }
 
+TreeNode* createBinaryTree()
+{
+    TreeNode* root = new TreeNode(5);
+
+    TreeNode* curr = root;
+
+    vector<int> v = {4, 6, 2, 1, 7, 8, 5, 7};
+
+    int i=0;
+
+    while (i < v.size())
+    {
+        if (i % 2 == 0)
+        {
+            curr->addLeftChild(v[i]);
+        }
+        else
+        {
+            curr = curr->addRightChild(v[i]);
+        }
+
+        i++;
+    }
+
+    return root;
+}
+
 int main()
 {
     BinarySearchTree bst = BinarySearchTree();
@@ -105,4 +132,14 @@ int main()
     int max = numeric_limits<int>::max();
 
     printf("Checking to see if the tree is a BST using min/max %d\n", isBST(bst.getRoot(), min, max));
+
+    TreeNode* BT = createBinaryTree();
+
+    cout << endl;
+
+    printf("Checking to see if the tree is a BST %d\n", isBST(BT));
+
+    cout << endl;
+
+    printf("Checking to see if the tree is a BST using min/max %d\n", isBST(BT, min, max));
 }
