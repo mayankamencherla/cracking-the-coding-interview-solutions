@@ -336,3 +336,37 @@ void BinarySearchTree::clear()
 
     this->size = 0;
 }
+
+/**
+ * Gets the nth rank node by in order
+ *
+ * @param TreeNode* curr
+ * @param int& n
+ * @return TreeNode*
+ */
+TreeNode* BinarySearchTree::getNthRank(TreeNode* curr, int& n)
+{
+    if (!curr) return nullptr;
+
+    TreeNode* left = this->getNthRank(curr->left, n);
+
+    if (left != nullptr) return left;
+
+    n--;
+
+    if (n == 0) return curr;
+
+    return this->getNthRank(curr->right, n);
+}
+
+/**
+ * Gets the nth rank node by in order
+ * n must be in the range [1, numVertices]
+ *
+ * @param int n
+ * @return TreeNode*
+ */
+TreeNode* BinarySearchTree::getNthRank(int n)
+{
+    return this->getNthRank(this->getRoot(), n);
+}
