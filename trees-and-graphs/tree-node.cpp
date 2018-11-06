@@ -30,6 +30,8 @@ TreeNode* TreeNode::addLeftChild(int val)
 {
     this->left = new TreeNode(val);
 
+    this->left->setParent(this);
+
     return this->left;
 }
 
@@ -44,6 +46,8 @@ TreeNode* TreeNode::addRightChild(int val)
 {
     this->right = new TreeNode(val);
 
+    this->right->setParent(this);
+
     return this->right;
 }
 
@@ -56,6 +60,10 @@ TreeNode* TreeNode::addRightChild(int val)
 void TreeNode::setLeftChild(TreeNode* child)
 {
     this->left = child;
+
+    if (!child) return;
+
+    child->setParent(this);
 }
 
 
@@ -68,6 +76,10 @@ void TreeNode::setLeftChild(TreeNode* child)
 void TreeNode::setRightChild(TreeNode* child)
 {
     this->right = child;
+
+    if (!child) return;
+
+    child->setParent(this);
 }
 
 /**
@@ -112,4 +124,25 @@ void TreeNode::setHeight()
 void TreeNode::incrementHeight()
 {
     this->height++;
+}
+
+/**
+ * Gets the parent of the node
+ *
+ * @return parent
+ */
+TreeNode* TreeNode::getParent()
+{
+    return this->parent;
+}
+
+/**
+ * Sets the parent of the node
+ *
+ * @param TreeNode* parent
+ * @return void
+ */
+void TreeNode::setParent(TreeNode* parent)
+{
+    this->parent = parent;
 }
