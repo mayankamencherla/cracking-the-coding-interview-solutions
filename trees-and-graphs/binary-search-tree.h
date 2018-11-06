@@ -162,6 +162,24 @@ class BinarySearchTree
          * @return void
          */
         void clear();
+
+        /**
+         * Gets the nth rank node by in order
+         * n must be in the range [1, numVertices]
+         *
+         * @param int n
+         * @return TreeNode*
+         */
+        TreeNode* getNthRank(int n);
+
+        /**
+         * Gets the nth rank node by in order
+         *
+         * @param TreeNode* curr
+         * @param int& n
+         * @return TreeNode*
+         */
+        TreeNode* getNthRank(TreeNode* curr, int& n);
 };
 
 #endif
