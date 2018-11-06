@@ -96,6 +96,13 @@ class TreeNode
         int getHeight();
 
         /**
+         * Returns the value held at this node
+         *
+         * @return int
+         */
+        int getValue();
+
+        /**
          * Sets the height of the tree rooted at this node
          *
          * @return void
