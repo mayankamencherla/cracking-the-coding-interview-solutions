@@ -156,3 +156,18 @@ int TreeNode::getValue()
 {
     return this->value;
 }
+
+/**
+ * Returns if this node is an ancestor of given node
+ *
+ * @param TreeNode* node
+ * @return bool
+ */
+bool TreeNode::isAncestorOf(TreeNode* node)
+{
+    if (!node) return false;
+
+    else if (node == this) return true;
+
+    return this->isAncestorOf(node->parent);
+}
