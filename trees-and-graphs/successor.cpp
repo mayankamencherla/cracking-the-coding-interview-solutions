@@ -53,9 +53,29 @@ void minimalTree(BinarySearchTree& bst, vector<int>& v)
  */
 TreeNode* leftMostOf(TreeNode* curr)
 {
-    if (curr->left) return leftMostOf(curr->left);
+    if (!curr) return nullptr;
+
+    else if (curr->left) return leftMostOf(curr->left);
 
     return curr;
+}
+
+/**
+ * The algorithm is to keep going up to the parent
+ * Until the current root is a left child of its parent
+ *
+ * @param TreeNode* root
+ * @return TreeNode*
+ */
+TreeNode* parentOfLeftChild(TreeNode* root)
+{
+    TreeNode* parent = root->parent;
+
+    if (!parent) return nullptr;
+
+    if (parent->left == root) return parent;
+
+    return parentOfLeftChild(parent);
 }
 
 /**
@@ -66,9 +86,13 @@ TreeNode* leftMostOf(TreeNode* curr)
  */
 TreeNode* getSuccessor(TreeNode* root)
 {
-    if (!root || !root->right) return nullptr;
+    if (!root) return nullptr;
 
-    return leftMostOf(root->right);
+    TreeNode* successor = leftMostOf(root->right);
+
+    if (successor) return successor;
+
+    return parentOfLeftChild(root);
 }
 
 int main()
@@ -88,4 +112,26 @@ int main()
     cout << endl;
 
     printf("Successor of root %d is %d\n", bst.getRoot()->getValue(), getSuccessor(bst.getRoot())->getValue());
+
+    cout << endl;
+
+    for (int i=1; i<=bst.getNumVertices(); i++)
+    {
+        TreeNode* node = bst.getNthRank(i);
+
+        TreeNode* successor = getSuccessor(node);
+
+        if (successor == nullptr)
+        {
+            printf("Node %d doesn't have a successor\n", i);
+
+            cout << endl;
+
+            continue;
+        }
+
+        printf("Successor of node %d is %d\n", node->getValue(), successor->getValue());
+
+        cout << endl;
+    }
 }
