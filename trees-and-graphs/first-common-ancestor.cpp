@@ -130,6 +130,18 @@ int main()
 
     cout << endl;
 
+    fca = firstCommonAncestor(bst.getNthRank(1), bst.getNthRank(15));
+
+    printf("FCA of 1, 15 is %d\n", fca ? fca->getValue() : -1);
+
+    cout << endl;
+
+    fca = firstCommonAncestor(bst.getNthRank(11), bst.getNthRank(15));
+
+    printf("FCA of 11, 15 is %d\n", fca ? fca->getValue() : -1);
+
+    cout << endl;
+
     bool isAncestorOf = bst.getNthRank(1)->isAncestorOf(bst.getNthRank(15));
 
     printf("Checking if 1 is an ancestor of 15 : %d\n", isAncestorOf);
