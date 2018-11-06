@@ -133,6 +133,35 @@ class BinarySearchTree
          * @return int
          */
         int getHeight();
+
+        /**
+         * Returns the root of the bst
+         *
+         * @return TreeNode*
+         */
+        TreeNode* getRoot();
+
+        /**
+         * Returns whether the height of the tree is balanced
+         *
+         * @param TreeNode* curr
+         * @return bool
+         */
+        bool getBalanced(TreeNode* curr);
+
+        /**
+         * Returns whether the height of the tree is balanced
+         *
+         * @return bool
+         */
+        bool getBalanced();
+
+        /**
+         * Clears the binary tree
+         *
+         * @return void
+         */
+        void clear();
 };
 
 #endif
