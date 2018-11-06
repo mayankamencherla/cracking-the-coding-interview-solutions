@@ -130,6 +130,14 @@ class TreeNode
          * @return void
          */
         void setParent(TreeNode* parent);
+
+        /**
+         * Returns if this node is an ancestor of given node
+         *
+         * @param TreeNode* node
+         * @return bool
+         */
+        bool isAncestorOf(TreeNode* node);
 };
 
 #endif
