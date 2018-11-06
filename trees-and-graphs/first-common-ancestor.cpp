@@ -46,6 +46,22 @@ void minimalTree(BinarySearchTree& bst, vector<int>& v)
 }
 
 /**
+ * Start from n, go upwards
+ *
+ * @param TreeNode* n
+ * @param int up
+ * @return TreeNode*
+ */
+TreeNode* goUpBy(TreeNode* n, int up)
+{
+    if (!n) return nullptr;
+
+    else if (up == 0) return n;
+
+    return goUpBy(n->parent, up-1);
+}
+
+/**
  * Given 2 nodes, find their FCA
  *
  * @param TreeNode* n1
@@ -56,11 +72,18 @@ TreeNode* firstCommonAncestor(TreeNode* n1, TreeNode* n2)
 {
     if (!n1 || !n2) return nullptr;
 
-    else if (n2->isAncestorOf(n1)) return n2;
+    if (n1 == n2) return n1;
 
-    else if (n1->isAncestorOf(n2)) return n1;
+    int hL = n1->getHeight();
 
-    return firstCommonAncestor(n1->parent, n2);
+    int hR = n2->getHeight();
+
+    if (hL < hR) swap(n1, n2);
+
+    // Node at lower portion of the tree needs to be moved upwards
+    n2 = goUpBy(n2, abs(hL - hR));
+
+    return firstCommonAncestor(n1->parent, n2->parent);
 }
 
 int main()
@@ -74,6 +97,10 @@ int main()
     cout << endl;
 
     minimalTree(bst, v);
+
+    cout << endl;
+
+    bst.printLevelOrder();
 
     printf("The height of the tree after insertion %d\n", bst.getHeight());
 
