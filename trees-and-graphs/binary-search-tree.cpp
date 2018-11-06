@@ -39,6 +39,8 @@ TreeNode* BinarySearchTree::recursiveInsert(TreeNode* curr, int val)
         curr->right = recursiveInsert(curr->right, val);
     }
 
+    curr->setHeight();
+
     return curr;
 }
 
@@ -276,4 +278,61 @@ int BinarySearchTree::getHeight(TreeNode* curr)
 int BinarySearchTree::getHeight()
 {
     return this->getHeight(this->root);
+}
+
+/**
+ * Returns the root of the bst
+ *
+ * @return TreeNode*
+ */
+TreeNode* BinarySearchTree::getRoot()
+{
+    return this->root;
+}
+
+/**
+ * Returns whether the height of the tree is balanced
+ *
+ * @param TreeNode* curr
+ * @return bool
+ */
+bool BinarySearchTree::getBalanced(TreeNode* curr)
+{
+    if (!curr) return true;
+
+    int left = curr->left ? curr->left->getHeight() : 0;
+
+    int right = curr->right ? curr->right->getHeight() : 0;
+
+    int diff = abs(left - right);
+
+    if (diff > 1) return false;
+
+    else if (!this->getBalanced(curr->left)) return false;
+
+    else if (!this->getBalanced(curr->right)) return false;
+
+    return true;
+}
+
+/**
+ * Returns whether the height of the tree is balanced
+ *
+ * @return bool
+ */
+bool BinarySearchTree::getBalanced()
+{
+    return this->getBalanced(this->getRoot());
+}
+
+/**
+ * Clears the binary tree
+ *
+ * @return void
+ */
+void BinarySearchTree::clear()
+{
+    this->root = NULL;
+
+    this->size = 0;
 }
