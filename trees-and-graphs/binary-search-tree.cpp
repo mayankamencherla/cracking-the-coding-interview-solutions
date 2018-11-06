@@ -32,11 +32,15 @@ TreeNode* BinarySearchTree::recursiveInsert(TreeNode* curr, int val)
 
     if (curr->value >= val)
     {
-        curr->left = recursiveInsert(curr->left, val);
+        TreeNode* left = recursiveInsert(curr->left, val);
+
+        curr->setLeftChild(left);
     }
     else
     {
-        curr->right = recursiveInsert(curr->right, val);
+        TreeNode* right = recursiveInsert(curr->right, val);
+
+        curr->setRightChild(right);
     }
 
     curr->setHeight();
