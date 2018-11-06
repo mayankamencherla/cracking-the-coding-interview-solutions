@@ -1,4 +1,7 @@
 #include "tree-node.h"
+#include <algorithm>
+
+using namespace std;
 
 /**
  * Creates a TreeNode* with no children
@@ -12,6 +15,8 @@ TreeNode::TreeNode(int val)
     this->right = nullptr;
 
     this->left = nullptr;
+
+    this->height = 1;
 }
 
 /**
@@ -73,4 +78,38 @@ void TreeNode::setRightChild(TreeNode* child)
 bool TreeNode::isLeaf()
 {
     return !this->left && !this->right;
+}
+
+/**
+ * Returns the height of the tree
+ *
+ * @return int
+ */
+int TreeNode::getHeight()
+{
+    return this->height;
+}
+
+/**
+ * Sets the height of the tree
+ *
+ * @return void
+ */
+void TreeNode::setHeight()
+{
+    int heightL = this->left ? this->left->getHeight() : 0;
+
+    int heightR = this->right ? this->right->getHeight() : 0;
+
+    this->height = 1 + max(heightL, heightR);
+}
+
+/**
+ * Increments the height of the tree
+ *
+ * @return void
+ */
+void TreeNode::incrementHeight()
+{
+    this->height++;
 }
