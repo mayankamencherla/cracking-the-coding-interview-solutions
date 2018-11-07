@@ -4,6 +4,7 @@
 #include <utility>
 #include <iostream>
 #include <list>
+#include <unordered_map>
 
 using namespace std;
 
@@ -426,4 +427,53 @@ bool BinarySearchTree::isSubtree(TreeNode* tree2)
     string s2 = this->getPreOrderString(this->getRoot());
 
     return s2.find(s1) != string::npos;
+}
+
+/**
+ * Returns the number of paths that sum to k
+ *
+ * @param unordered_map<int, int>& hash
+ * @param TreeNode* root
+ * @param int k
+ * @param int sum
+ * @return int
+ */
+int BinarySearchTree::numPaths(unordered_map<int, int>& hash, TreeNode* root, int k, int sum)
+{
+    if (!root) return 0;
+
+    sum += root->getValue();
+
+    int target = sum - k;
+
+    unordered_map<int, int>::iterator it = hash.find(target);
+
+    int count = it != hash.end() ? it->second : 0;
+
+    hash[sum]++;
+
+    count += this->numPaths(hash, root->left, k, sum);
+
+    count += this->numPaths(hash, root->right, k, sum);
+
+    hash[sum]--;
+
+    return count;
+}
+
+/**
+ * Returns the number of paths that sum to k
+ *
+ * @param int k
+ * @return int
+ */
+int BinarySearchTree::numPaths(int k)
+{
+    unordered_map<int, int> hash;
+
+    hash[0] = 1;
+
+    TreeNode* start = this->getRoot();
+
+    return this->numPaths(hash, start, k, 0);
 }
