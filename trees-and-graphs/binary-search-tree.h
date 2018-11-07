@@ -180,6 +180,22 @@ class BinarySearchTree
          * @return TreeNode*
          */
         TreeNode* getNthRank(TreeNode* curr, int& n);
+
+        /**
+         * Returns whether input tree is a subtree of this tree
+         *
+         * @return bool
+         */
+        bool isSubtree(TreeNode* tree2);
+
+        /**
+         * Returns whether 2 trees are equal
+         *
+         * @param TreeNode* tree1
+         * @param TreeNode* tree2
+         * @return bool
+         */
+        bool areTreesEqual(TreeNode* tree1, TreeNode* tree2);
 };
 
 #endif
