@@ -5,6 +5,7 @@
 #include <vector>
 #include <list>
 #include <string>
+#include <unordered_map>
 
 using namespace std;
 
@@ -205,6 +206,25 @@ class BinarySearchTree
          * @return bool
          */
         bool isSubtree(TreeNode* tree2);
+
+        /**
+         * Returns the number of paths that sum to k
+         *
+         * @param unordered_map<int, int>& hash
+         * @param TreeNode* root
+         * @param int k
+         * @param int sum
+         * @return int
+         */
+        int numPaths(unordered_map<int, int>& hash, TreeNode* root, int k, int sum);
+
+        /**
+         * Returns the number of paths that sum to k
+         *
+         * @param int k
+         * @return bool
+         */
+        int numPaths(int k);
 };
 
 #endif
