@@ -378,23 +378,39 @@ TreeNode* BinarySearchTree::getNthRank(int n)
 }
 
 /**
- * Returns whether 2 trees are equal
+ * Generates the pre order string of root
  *
- * @param TreeNode* tree1
- * @param TreeNode* tree2
- * @return bool
+ * @param TreeNode* root
+ * @param string& res
+ * @return void
  */
-bool BinarySearchTree::areTreesEqual(TreeNode* tree1, TreeNode* tree2)
+void BinarySearchTree::generatePreOrderString(TreeNode* root, string& res)
 {
-    if (!tree1 && !tree2) return true;
+    if (!root) res.push_back('#');
 
-    else if (!tree1 || !tree2) return false;
+    else
+    {
+        res += to_string(root->getValue());
 
-    else if (tree1->getValue() != tree2->getValue()) return false;
+        this->generatePreOrderString(root->left, res);
 
-    else if (!areTreesEqual(tree1->left, tree2->left)) return false;
+        this->generatePreOrderString(root->right, res);
+    }
+}
 
-    return areTreesEqual(tree1->right, tree2->right);
+/**
+ * Returns the pre order string of root
+ *
+ * @param TreeNode* root
+ * @return string
+ */
+string BinarySearchTree::getPreOrderString(TreeNode* root)
+{
+    string res;
+
+    generatePreOrderString(root, res);
+
+    return res;
 }
 
 /**
@@ -405,9 +421,9 @@ bool BinarySearchTree::areTreesEqual(TreeNode* tree1, TreeNode* tree2)
  */
 bool BinarySearchTree::isSubtree(TreeNode* tree2)
 {
-    TreeNode* tree1 = this->find(this->getRoot(), tree2->getValue());
+    string s1 = this->getPreOrderString(tree2);
 
-    if (!tree1) return false;
+    string s2 = this->getPreOrderString(this->getRoot());
 
-    return areTreesEqual(tree1, tree2);
+    return s2.find(s1) != string::npos;
 }
