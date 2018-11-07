@@ -270,7 +270,9 @@ int BinarySearchTree::getHeight(TreeNode* curr)
 {
     if (!curr) return 0;
 
-    return 1 + max(this->getHeight(curr->left), this->getHeight(curr->right));
+    curr->setHeight();
+
+    return curr->getHeight();
 }
 
 /**
@@ -373,4 +375,39 @@ TreeNode* BinarySearchTree::getNthRank(TreeNode* curr, int& n)
 TreeNode* BinarySearchTree::getNthRank(int n)
 {
     return this->getNthRank(this->getRoot(), n);
+}
+
+/**
+ * Returns whether 2 trees are equal
+ *
+ * @param TreeNode* tree1
+ * @param TreeNode* tree2
+ * @return bool
+ */
+bool BinarySearchTree::areTreesEqual(TreeNode* tree1, TreeNode* tree2)
+{
+    if (!tree1 && !tree2) return true;
+
+    else if (!tree1 || !tree2) return false;
+
+    else if (tree1->getValue() != tree2->getValue()) return false;
+
+    else if (!areTreesEqual(tree1->left, tree2->left)) return false;
+
+    return areTreesEqual(tree1->right, tree2->right);
+}
+
+/**
+ * Returns whether input tree is a subtree of this tree
+ *
+ * @param TreeNode* tree2
+ * @return bool
+ */
+bool BinarySearchTree::isSubtree(TreeNode* tree2)
+{
+    TreeNode* tree1 = this->find(this->getRoot(), tree2->getValue());
+
+    if (!tree1) return false;
+
+    return areTreesEqual(tree1, tree2);
 }
