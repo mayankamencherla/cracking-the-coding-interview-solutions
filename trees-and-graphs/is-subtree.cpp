@@ -84,4 +84,20 @@ int main()
     printf("Checking if T2 is a subtree of T1 %d\n", bst.isSubtree(bst2.getRoot()));
 
     printf("Checking if T1 is a subtree of T2 %d\n", bst2.isSubtree(bst.getRoot()));
+
+    cout << endl;
+
+    v = {9, 10, 11, 12, 13, 14, 15};
+
+    bst2.clear();
+
+    printf("The height of the tree before insertion %d\n", bst2.getHeight());
+
+    minimalTree(bst2, v);
+
+    printf("The height of the tree after insertion %d\n", bst2.getHeight());
+
+    cout << endl;
+
+    printf("Checking if T2 is a subtree of T1 %d\n", bst.isSubtree(bst2.getRoot()));
 }
