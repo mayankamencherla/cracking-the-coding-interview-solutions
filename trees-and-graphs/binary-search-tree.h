@@ -4,6 +4,7 @@
 #include "tree-node.cpp"
 #include <vector>
 #include <list>
+#include <string>
 
 using namespace std;
 
@@ -182,20 +183,28 @@ class BinarySearchTree
         TreeNode* getNthRank(TreeNode* curr, int& n);
 
         /**
+         * Generates the pre order string of root
+         *
+         * @param TreeNode* root
+         * @param string& res
+         * @return void
+         */
+        void generatePreOrderString(TreeNode* root, string& res);
+
+        /**
+         * Returns the pre order string of root
+         *
+         * @param TreeNode* root
+         * @return string
+         */
+        string getPreOrderString(TreeNode* root);
+
+        /**
          * Returns whether input tree is a subtree of this tree
          *
          * @return bool
          */
         bool isSubtree(TreeNode* tree2);
-
-        /**
-         * Returns whether 2 trees are equal
-         *
-         * @param TreeNode* tree1
-         * @param TreeNode* tree2
-         * @return bool
-         */
-        bool areTreesEqual(TreeNode* tree1, TreeNode* tree2);
 };
 
 #endif
