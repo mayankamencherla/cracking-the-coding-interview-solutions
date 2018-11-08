@@ -47,7 +47,16 @@ int main()
 {
     vector<int> v = {1, 4, 5, 6, 8, 9, 11, 14, 15, 17, 18};
 
-    printf("Search for 11 in the array yields : %d as the index where 11 lies \n\n", binarySearchRec(v, 11));
+    for (int elem : v)
+    {
+        int search = elem;
 
-    printf("Search for 11 in the array yields : %d as the index where 11 lies \n\n", binarySearchIter(v, 11));
+        int res1 = binarySearchRec(v, search);
+
+        int res2 = binarySearchIter(v, search);
+
+        printf("Recursively searching for %d in the array yields : %d as the index where %d lies \n\n", search, res1, search);
+
+        printf("Iteratively searching for %d in the array yields : %d as the index where %d lies \n\n", search, res2, search);
+    }
 }
