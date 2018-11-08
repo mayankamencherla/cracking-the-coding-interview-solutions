@@ -1,4 +1,4 @@
-# cracking-the-coding-interview-solutions
+# Cracking the coding interview questions
 Contains in depth solutions and test cases for problems on CTCI
 
 # Coming soon
