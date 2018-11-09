@@ -46,6 +46,15 @@ class TreeNode
             this->sizeOfRight = 0;
         }
 
+        ~TreeNode()
+        {
+            this->value = 0;
+
+            if (this->left) delete(this->left);
+
+            if (this->right) delete(this->right);
+        }
+
         /**
          * Left child
          * @param TreeNode* left
