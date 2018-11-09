@@ -110,6 +110,11 @@ class StreamRank
             this->root = nullptr;
         }
 
+        ~StreamRank()
+        {
+            delete(this->root);
+        }
+
         StreamRank(vector<int>& v)
         {
             this->root = nullptr;
@@ -200,6 +205,17 @@ class StreamRank
         {
             return this->getRankOfNumber(this->root, x);
         }
+
+        /**
+         * Clears the ranking stream
+         * @returns void
+         */
+        void clear()
+        {
+            delete(this->root);
+
+            this->root = nullptr;
+        }
 };
 
 int main()
@@ -207,6 +223,19 @@ int main()
     vector<int> v = {5, 1, 4, 4, 5, 9, 7, 13, 3};
 
     StreamRank sr = StreamRank(v);
+
+    for (int elem : v)
+    {
+        printf("What is the rank of %d? It is %d\n", elem, sr.getRankOfNumber(elem));
+    }
+
+    cout << endl;
+
+    sr.clear();
+
+    v = {5, 1, 4};
+
+    for (int elem : v) sr.insert(elem);
 
     for (int elem : v)
     {
