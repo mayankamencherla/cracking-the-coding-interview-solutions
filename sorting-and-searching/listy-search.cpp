@@ -29,6 +29,7 @@ class Listy
         }
 };
 
+// O(logn) search algorithm
 int binarySearch(Listy& l, int search)
 {
     int end = 1;
