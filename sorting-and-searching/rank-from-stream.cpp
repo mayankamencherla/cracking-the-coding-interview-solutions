@@ -48,8 +48,6 @@ class TreeNode
 
         ~TreeNode()
         {
-            this->value = 0;
-
             if (this->left) delete(this->left);
 
             if (this->right) delete(this->right);
