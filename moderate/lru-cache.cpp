@@ -3,7 +3,6 @@
  */
 
 #include <iostream>
-#include <unordered_map>
 #include <limits>
 #include <vector>
 #include <algorithm>
@@ -38,7 +37,7 @@ class LRUCache
          */
         bool isFull()
         {
-            return cache.size() == this->size;
+            return this->getCapacity() == this->getSize();
         }
 
         /**
@@ -75,6 +74,40 @@ class LRUCache
 
             return cache.front();
         }
+
+        /**
+         * Returns the capacity of the LRU Cache
+         * @returns int
+         */
+        int getCapacity()
+        {
+            return this->size;
+        }
+
+        /**
+         * Returns the size of the LRU Cache
+         * @returns int
+         */
+        int getSize()
+        {
+            return this->cache.size();
+        }
+
+        /**
+         * Prints the cache from most to least recently used
+         * @returns void
+         */
+        void printCache()
+        {
+            printf("Printing most to least recently used\n");
+
+            for (typename list<T>::iterator it=cache.begin(); it!=cache.end(); it++)
+            {
+                cout << *it << " ";
+            }
+
+            cout << endl;
+        }
 };
 
 int main()
@@ -89,4 +122,8 @@ int main()
 
         printf("Most recently added element %d\n", c.recentlyUsed());
     }
+
+    cout << endl;
+
+    c.printCache();
 }
