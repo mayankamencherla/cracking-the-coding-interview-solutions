@@ -543,33 +543,6 @@ class CallCenter
             }
             else
             {
-                while (!this->respondentQ.empty())
-                {
-                    auto r = this->respondentQ.top();
-
-                    this->respondentQ.pop();
-
-                    r.print();
-                }
-
-                while (!this->managerQ.empty())
-                {
-                    auto m = this->managerQ.top();
-
-                    this->managerQ.pop();
-
-                    m.print();
-                }
-
-                while (!this->directorQ.empty())
-                {
-                    auto d = this->directorQ.top();
-
-                    this->directorQ.pop();
-
-                    d.print();
-                }
-
                 throw "No employees available to take this call";
             }
         }
