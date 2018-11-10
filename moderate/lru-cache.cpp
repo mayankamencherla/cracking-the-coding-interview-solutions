@@ -5,6 +5,7 @@
 #include <iostream>
 #include <limits>
 #include <vector>
+#include <unordered_map>
 #include <algorithm>
 #include <list>
 
@@ -25,6 +26,12 @@ class LRUCache
          * @param list<T> cache
          */
         list<T> cache;
+
+        /**
+         * Map containing location of cache item
+         * @param unordered_map<T, typename list<T>::iterator> hashmap
+         */
+        unordered_map<T, typename list<T>::iterator> hashmap;
     public:
         LRUCache(int sz)
         {
@@ -58,10 +65,14 @@ class LRUCache
         {
             if (this->isFull())
             {
+                hashmap.erase(cache.back());
+
                 cache.pop_back();
             }
 
             cache.push_front(item);
+
+            hashmap[item] = cache.begin();
         }
 
         /**
@@ -108,6 +119,36 @@ class LRUCache
 
             cout << endl;
         }
+
+        /**
+         * Returns whether the item exists in the cache
+         * @param T elem
+         * @returns bool
+         */
+        bool itemExists(T elem)
+        {
+            return hashmap.find(elem) != hashmap.end();
+        }
+
+        /**
+         * Returns an item in the cache
+         * @param T elem
+         * @returns T
+         */
+        T get(T elem)
+        {
+            if (!this->itemExists(elem)) throw "Item does not exist in the cache";
+
+            auto it = hashmap.find(elem);
+
+            cache.erase(it->second);
+
+            cache.push_front(elem);
+
+            hashmap[elem] = cache.begin();
+
+            return elem;
+        }
 };
 
 int main()
@@ -122,6 +163,20 @@ int main()
 
         printf("Most recently added element %d\n", c.recentlyUsed());
     }
+
+    cout << endl;
+
+    c.printCache();
+
+    c.get(3);
+
+    cout << endl;
+
+    c.printCache();
+
+    cout << endl;
+
+    c.get(5);
 
     cout << endl;
 
