@@ -76,6 +76,15 @@ class Card
         }
 
         /**
+         * Returns the color of the card
+         * @returns Color
+         */
+        Color getColor()
+        {
+            return this->color;
+        }
+
+        /**
          * Returns the index of the card
          * @returns int
          */
@@ -86,7 +95,8 @@ class Card
 
         void print()
         {
-            printf("Suit : %u and Value : %u and Index : %d\n", this->getSuit(), this->getValue(), this->getIndex());
+            printf("Suit : %u, Value : %2u, Color : %d and Index : %2d\n",
+                this->getSuit(), this->getValue(), this->getColor(), this->getIndex());
         }
 };
 
