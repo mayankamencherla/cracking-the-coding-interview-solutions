@@ -137,7 +137,7 @@ class CircularArray
          */
         int get(int index)
         {
-            return this->elements[this->getShiftedIndex(index)];
+            return this->getElements()[this->getShiftedIndex(index)];
         }
 
         /**
