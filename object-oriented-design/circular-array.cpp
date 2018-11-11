@@ -45,6 +45,8 @@ class CircularArray
 
         /**
          * Sets the head of the circular array
+         * @param int head
+         * @return void
          */
         void setHead(int head)
         {
@@ -72,6 +74,15 @@ class CircularArray
         }
 
         /**
+         * Decrements the head index
+         * @return void
+         */
+        void decrementHead()
+        {
+            this->rotate(-1);
+        }
+
+        /**
          * Returns the shifted index
          * @param int index
          * @return int
@@ -94,6 +105,7 @@ class CircularArray
         /**
          * Rotates the array by shiftRight
          * @param int shiftRight
+         * @return void
          */
         void rotate(int shiftRight)
         {
@@ -159,8 +171,6 @@ class CircularArray
         typename vector<T>::iterator last()
         {
             int last = (this->getHead() + this->size()-1) % this->size();
-
-            cout << last << endl;
 
             return this->getElements().begin() + last;
         }
