@@ -153,8 +153,34 @@ class CircularArray
         }
 
         /**
+         * Returns an iterator to the last element of the circular array
+         * @return typename vector<T>::iterator
+         */
+        typename vector<T>::iterator last()
+        {
+            int last = (this->getHead() + this->size()-1) % this->size();
+
+            cout << last << endl;
+
+            return this->getElements().begin() + last;
+        }
+
+        /**
+         * Returns an iterator to the next element in the circular array
+         * @param typename vector<T>::iterator& it
+         * @return typename vector<T>::iterator
+         */
+        typename vector<T>::iterator next(typename vector<T>::iterator& it)
+        {
+            // hasNext is expected to be called
+            int ind = it - this->getElements().begin();
+
+            return this->getElements().begin() + (ind + 1) % this->size();
+        }
+
+        /**
          * Returns an iterator to the head of the circular array
-         * @return typename vector<T>::iterator begin
+         * @return typename vector<T>::iterator
          */
         typename vector<T>::iterator begin()
         {
@@ -186,5 +212,18 @@ int main()
 
     cout << endl;
 
-    printf("The head of the circular array contains %d\n", *(c.begin()));
+    typename vector<int>::iterator it = c.begin();
+
+    cout << "Printing elements in the array" << endl;
+
+    int index = 0;
+
+    while (index < c.size())
+    {
+        printf("Value at %d contains %d\n", index, *it);
+
+        index++;
+
+        it = c.next(it);
+    }
 }
