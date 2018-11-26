@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- [![Packagist](https://img.shields.io/packagist/v/symfony/symfony.svg)]() --> 
 
-![alt text](https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/ctci.jpg)
+![alt text](https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/ctci-large.jpg)
 
 ## Downloading
 ```bash
