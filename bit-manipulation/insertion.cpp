@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bitset>
 
 using namespace std;
 
@@ -43,9 +44,17 @@ int main()
 
     int i=4; int j=10;
 
-    printf("n before insertion %d\n\n", n);
+    bitset<20> nb(n);
+
+    bitset<20> mb(m);
+
+    printf("n before insertion %s\n\n", nb.to_string().c_str());
+
+    printf("m being inserted   %s\n\n", mb.to_string().c_str());
 
     insertion(n, m, i , j);
 
-    printf("n after insertion %d\n", n);
+    bitset<20> nb2(n);
+
+    printf("n after insertion  %s\n", nb2.to_string().c_str());
 }
