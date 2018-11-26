@@ -24,7 +24,7 @@ void insertion(int& n, int m, int i, int j)
     int mask = ones << (j+1);
 
     // clear bits [i, 32]
-    int mask2 = ~(ones << (i-1));
+    int mask2 = ~(ones << i);
 
     mask |= mask2;
 
@@ -41,7 +41,7 @@ int main()
     // 10011
     int m = 19;
 
-    int i=2; int j=6;
+    int i=4; int j=10;
 
     printf("n before insertion %d\n\n", n);
 
