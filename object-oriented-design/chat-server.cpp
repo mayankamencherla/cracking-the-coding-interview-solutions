@@ -38,28 +38,30 @@ class Message
 
         /**
          * The time when the message was created
-         * @param int createdAt
+         * @param string createdAt
          */
-        int createdAt;
+        string createdAt;
 
         /**
          * The time when the message was received by the channel
-         * @Param int receivedAt
+         * @Param string receivedAt
          */
-        int receivedAt;
+        string receivedAt;
 
     public:
-        Message(string& t, string& f, string& to)
+        Message(string& text, string& from, string& to)
         {
-            this->text = t;
+            this->text = text;
 
-            this->from = f;
+            this->from = from;
 
             this->to = to;
 
             this->generateCreatedAt();
 
             this->receivedAt = -1;
+
+            // this->print();
         }
 
         /**
@@ -82,13 +84,13 @@ class Message
 
         /**
          * Returns the current timestamp
-         * @return int
+         * @return string
          */
-        int currentTimestamp()
+        string currentTimestamp()
         {
             auto timenow = chrono::system_clock::to_time_t(chrono::system_clock::now());
 
-            return stoi(ctime(&timenow));
+            return ctime(&timenow);
         }
 
         /**
@@ -97,8 +99,8 @@ class Message
          */
         void print()
         {
-            printf("The message was created at %d and is from %s\n, and to %s\n and contains the text: %s\n",
-                this->createdAt, this->from.c_str(), this->to.c_str(), this->text.c_str());
+            printf("Message Properties: \n Created at: %s\n From: %s\n To: %s\n Text: %s\n",
+                this->createdAt.c_str(), this->from.c_str(), this->to.c_str(), this->text.c_str());
         }
 };
 
@@ -274,12 +276,14 @@ class ChatServer
         {
             unordered_map<User*, unordered_set<string>>::iterator it;
 
-            printf("The ChatServer contains %lu users\n\n", userChannels.size());
+            printf("The ChatServer contains %lu users\n", userChannels.size());
 
             int index = 1;
 
             for (it = userChannels.begin(); it != userChannels.end(); it++)
             {
+                printf("-----------------------------------------\n");
+
                 printf("User %d\n", index);
 
                 it->first->print();
@@ -355,6 +359,10 @@ bool User::isHistoryFull()
  */
 void User::receiveMessage(Message* m)
 {
+    printf("-----------------------------------------\n");
+
+    printf("Message received by user %s\n", this->getName().c_str());
+
     m->print();
 
     if (this->isHistoryFull())
@@ -530,11 +538,17 @@ int main()
 {
     ChatServer* cs = new ChatServer();
 
-    string n1 = "mayank"; string n2 = "amencherla";
+    string n1 = "mayank"; string n2 = "amencherla"; string room = "dota";
 
     User* u1 = new User(n1, cs, 10);
 
     User* u2 = new User(n2, cs, 10);
 
+    u2->joinChannel(room);
+
     cs->printAllUsers();
+
+    string message = "I'm super excited to be joining the dota chat room!!";
+
+    u1->message(room, message);
 }
