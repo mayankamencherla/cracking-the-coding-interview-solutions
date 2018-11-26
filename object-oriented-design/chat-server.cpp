@@ -496,6 +496,10 @@ void ChatServer::addUserToChannel(User* u, string& c)
     this->userChannels[u].insert(c);
 
     this->channelUsers[c].insert(u);
+
+    printf("-----------------------------------------\n");
+
+    printf("User: %s has joined the channel: %s\n", u->getName().c_str(), c.c_str());
 }
 
 /**
@@ -509,6 +513,10 @@ void ChatServer::removeUserFromChannel(User* u, string& c)
     this->userChannels[u].erase(c);
 
     this->channelUsers[c].erase(u);
+
+    printf("-----------------------------------------\n");
+
+    printf("User: %s has left the channel: %s\n", u->getName().c_str(), c.c_str());
 }
 
 /**
@@ -527,6 +535,10 @@ void ChatServer::sendMessage(User* u, string& channel, string& text)
     Message* m = new Message(text, name, channel);
 
     unordered_set<User*> users = this->channelUsers[channel];
+
+    printf("-----------------------------------------\n");
+
+    printf("This message has been received by %lu in the channel\n", users.size());
 
     for (User* u : users)
     {
@@ -551,4 +563,10 @@ int main()
     string message = "I'm super excited to be joining the dota chat room!!";
 
     u1->message(room, message);
+
+    u1->leaveChannel(room);
+
+    string message2 = "Testing to see who is out there....";
+
+    u2->message(room, message2);
 }
