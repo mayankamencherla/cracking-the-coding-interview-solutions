@@ -8,12 +8,12 @@ using namespace std;
  * m contains at least j-i+1 bits
  *
  * @param int& n
- * @param int m
+ * @param int& m
  * @param int i
  * @param int j
  * @return void
  */
-void insertion(int& n, int m, int i, int j)
+void insertion(int& n, int& m, int i, int j)
 {
     // left shift by i
     // The MSB will be at most j
@@ -48,13 +48,17 @@ int main()
 
     bitset<20> mb(m);
 
-    printf("n before insertion %s\n\n", nb.to_string().c_str());
+    printf("n before insertion : %s\n\n", nb.to_string().c_str());
 
-    printf("m being inserted   %s\n\n", mb.to_string().c_str());
+    printf("m being inserted   : %s\n\n", mb.to_string().c_str());
 
     insertion(n, m, i , j);
 
     bitset<20> nb2(n);
 
-    printf("n after insertion  %s\n", nb2.to_string().c_str());
+    bitset<20> mb2(m);
+
+    printf("m being inserted   : %s\n\n", mb2.to_string().c_str());
+
+    printf("n after insertion  : %s\n", nb2.to_string().c_str());
 }
