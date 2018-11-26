@@ -1,4 +1,4 @@
-# Cracking the coding interview questions
+# Cracking The Coding Interview Questions
 Contains in depth solutions and test cases for problems on CTCI
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -11,5 +11,5 @@ Contains in depth solutions and test cases for problems on CTCI
 $ git clone https://github.com/mayankamencherla/cracking-the-coding-interview-solutions.git
 ```
 
-# Coming soon
+# Coming Soon
 - Full test cases coverage, and more details
