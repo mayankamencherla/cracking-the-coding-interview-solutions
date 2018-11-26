@@ -2,7 +2,8 @@
 > This repository contains in depth solutions and test cases for problems on CTCI
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-<!-- [![Packagist](https://img.shields.io/packagist/v/symfony/symfony.svg)]() --> [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+<!-- [![Packagist](https://img.shields.io/packagist/v/symfony/symfony.svg)]() --> 
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 
 ![alt text](https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/ctci.jpg)
 
