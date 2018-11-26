@@ -180,6 +180,12 @@ class User
          * @return void
          */
         void print();
+
+        /**
+         * Prints the history of the messages received by the user
+         * @return void
+         */
+        void printHistory();
 };
 
 class ChatServer
@@ -388,6 +394,8 @@ string User::getName()
  */
 void User::print()
 {
+    printf("-----------------------------------------\n");
+
     printf("The user has name : %s\n", this->name.c_str());
 
     unordered_set<string> channels = this->server->getUserChannels(this);
@@ -404,6 +412,27 @@ void User::print()
     }
 
     cout << endl;
+}
+
+/**
+ * Prints the history of messages received in reverse chronological order
+ * For eg, a recently received message will be printed before one received later
+ * @return void
+ */
+void User::printHistory()
+{
+    list<Message*>::iterator it;
+
+    printf("-----------------------------------------\n\n");
+
+    printf("Printing the message history for user: %s\n\n", this->getName().c_str());
+
+    for (it = this->history.begin(); it != this->history.end(); it++)
+    {
+        (*it)->print();
+
+        cout << endl;
+    }
 }
 
 /**
@@ -569,4 +598,6 @@ int main()
     string message2 = "Testing to see who is out there....";
 
     u2->message(room, message2);
+
+    u2->printHistory();
 }
