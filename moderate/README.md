@@ -7,4 +7,4 @@
 1. <a href="https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/moderate/pairs-with-sum.cpp" target="_blank">Pairs with Sum</a>
 1. <a href="https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/moderate/smallest-difference.cpp" target="_blank">Smallest Difference</a>
 1. <a href="https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/moderate/swap.cpp" target="_blank">Swap</a>
-1. <a href="https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/moderate/trailing-zeroes-factorial.cpp" target="_blank">Trailing Zeroes Factorial</a>
+1. <a href="https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/moderate/trailing-zeros-factorial.cpp" target="_blank">Trailing Zeroes Factorial</a>
