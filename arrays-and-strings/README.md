@@ -7,3 +7,6 @@
 1. <a href="https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/arrays-and-strings/one-away.cpp" target="_blank">One Away</a>
 1. <a href="https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/arrays-and-strings/permutation-palindrome.cpp" target="_blank">Permutation of a Palindrome</a>
 1. <a href="https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/arrays-and-strings/string-compression.cpp" target="_blank">String Compression</a>
+1. <a href="https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/arrays-and-strings/string-rotation.cpp" target="_blank">String Rotation</a>
+1. <a href="https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/arrays-and-strings/url-ify.cpp" target="_blank">Url-ify</a>
+1. <a href="https://github.com/mayankamencherla/cracking-the-coding-interview-solutions/blob/master/arrays-and-strings/zero-matrix.cpp" target="_blank">Zero Matrix</a>
